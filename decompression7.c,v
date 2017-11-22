@@ -1,0 +1,32 @@
+head	1.1;
+access;
+symbols;
+locks
+	root:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2017.05.13.10.15.03;	author root;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@#include "header.h"
+#include "declaration.h"
+int decompression7(int fd, char *ma)
+{
+	printf("start: %s\n",__func__);
+
+	printf("end: %s\n",__func__);
+}
+@

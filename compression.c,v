@@ -1,0 +1,359 @@
+head	1.18;
+access;
+symbols;
+locks
+	root:1.18; strict;
+comment	@ * @;
+
+
+1.18
+date	2017.07.19.18.39.06;	author root;	state Exp;
+branches;
+next	1.17;
+
+1.17
+date	2017.07.19.18.14.30;	author root;	state Exp;
+branches;
+next	1.16;
+
+1.16
+date	2017.05.12.13.45.44;	author root;	state Exp;
+branches;
+next	1.15;
+
+1.15
+date	2017.05.12.12.11.00;	author root;	state Exp;
+branches;
+next	1.14;
+
+1.14
+date	2017.05.12.12.10.32;	author root;	state Exp;
+branches;
+next	1.13;
+
+1.13
+date	2017.05.12.08.18.35;	author root;	state Exp;
+branches;
+next	1.12;
+
+1.12
+date	2017.05.12.06.20.13;	author root;	state Exp;
+branches;
+next	1.11;
+
+1.11
+date	2017.05.12.06.19.09;	author root;	state Exp;
+branches;
+next	1.10;
+
+1.10
+date	2017.05.11.07.51.32;	author root;	state Exp;
+branches;
+next	1.9;
+
+1.9
+date	2017.05.11.07.50.35;	author root;	state Exp;
+branches;
+next	1.8;
+
+1.8
+date	2017.05.11.07.49.51;	author root;	state Exp;
+branches;
+next	1.7;
+
+1.7
+date	2017.05.11.07.44.23;	author root;	state Exp;
+branches;
+next	1.6;
+
+1.6
+date	2017.05.11.07.42.13;	author root;	state Exp;
+branches;
+next	1.5;
+
+1.5
+date	2017.05.11.07.41.25;	author root;	state Exp;
+branches;
+next	1.4;
+
+1.4
+date	2017.05.11.07.40.05;	author root;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2017.05.11.07.37.58;	author root;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2017.05.11.07.23.51;	author root;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2017.05.08.06.30.27;	author root;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.18
+log
+@*** empty log message ***
+@
+text
+@#include"header.h"
+#include"declaration.h"
+int compression()
+{     
+	char *ma;
+	int fd,cl,ekey;
+	printf("Start:compression\n");	        
+	fd=open("myfile",O_RDONLY);
+	if(fd==-1)
+	{
+		perror("Error:");
+		exit(EXIT_FAILURE);	
+	}
+	ma=creatMasterarray(fd);
+	printf("%s",ma);
+	cl= codelen(strlen(ma));
+	lseek(fd,0,SEEK_SET);
+	switch (cl)
+	{	
+	case 2:
+		compression2(fd,ma);
+		break;
+	case 3:
+		compression3(fd,ma);
+		break;
+	case 4:
+		compression4(fd,ma);
+		break;
+	case 5:
+		compression5(fd,ma);
+		break;
+	case 6:
+		compression5(fd,ma);
+		break;
+	case 7:
+		compression5(fd,ma);
+		break;	
+	}
+	ekey=open("encrkey",O_WRONLY|O_CREAT);
+	if(ekey==-1)
+	{
+		perror("Error:");
+		exit(EXIT_FAILURE);	
+	}
+	write(ekey,ma,strlen(ma));
+	close(ekey);
+	close(fd);	
+	printf("end:compression\n");
+	return 0;
+}
+@
+
+
+1.17
+log
+@*** empty log message ***
+@
+text
+@d45 1
+a45 1
+	write(ekey,ma,strlen(ma)+1);
+@
+
+
+1.16
+log
+@*** empty log message ***
+@
+text
+@d45 1
+a45 1
+	write(ekey,ma,strlen(ma));
+@
+
+
+1.15
+log
+@*** empty log message ***
+@
+text
+@d30 1
+a30 1
+		compression4(fd,ma);
+d33 1
+a33 1
+		compression4(fd,ma);
+d36 1
+a36 1
+		compression4(fd,ma);
+@
+
+
+1.14
+log
+@*** empty log message ***
+@
+text
+@d6 1
+a6 1
+	int fd,cl;
+@
+
+
+1.13
+log
+@*** empty log message ***
+@
+text
+@d39 9
+a47 2
+	close(fd);
+	
+@
+
+
+1.12
+log
+@*** empty log message ***
+@
+text
+@d17 1
+@
+
+
+1.11
+log
+@*** empty log message ***
+@
+text
+@d17 2
+a18 1
+	switch cl
+d37 1
+a37 1
+
+@
+
+
+1.10
+log
+@this is a compression file
+@
+text
+@d6 1
+a6 1
+	int fd;
+d16 21
+d38 1
+@
+
+
+1.9
+log
+@this is an compression file
+@
+text
+@d17 1
+a17 1
+	printf("END:compression\n");
+@
+
+
+1.8
+log
+@*** empty log message ***
+@
+text
+@d15 1
+a15 1
+	printf("%s",*ma);
+@
+
+
+1.7
+log
+@*** empty log message ***
+@
+text
+@d15 1
+a15 1
+	printf("%s",ma);
+@
+
+
+1.6
+log
+@*** empty log message ***
+@
+text
+@d15 1
+a15 1
+	printf("%c",*ma);
+@
+
+
+1.5
+log
+@compression file onlly
+@
+text
+@d15 1
+a15 1
+	printf("%s",*ma);
+@
+
+
+1.4
+log
+@compression only
+@
+text
+@d15 1
+a15 1
+	printf("%d\n",fd);
+@
+
+
+1.3
+log
+@*** empty log message ***
+@
+text
+@d14 1
+a14 1
+	ma=createMasterarray(fd);
+@
+
+
+1.2
+log
+@this is an comprassion file
+@
+text
+@d6 1
+a7 1
+	int fd;
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d4 2
+a5 1
+{
+d14 1
+a14 1
+	
+@

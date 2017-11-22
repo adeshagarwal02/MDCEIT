@@ -1,0 +1,37 @@
+#! /bin/bash
+for file in $(ls *.h)
+do 
+	ci $file
+done
+for file in $(ls *.c)
+do 
+	ci $file
+done
+for file in $(ls *.h,v)
+do 
+	co -l $file
+done
+for file in $(ls *.c,v)
+do 
+	co -l $file
+done
+
+if ( make )
+then 
+	echo "Make successfuly" 
+	read -n1 -p "Do you want to run (y/n):" choice
+	echo 
+	if [ $choice = y ]
+	then
+		rm Compressedfile
+		rm Decompressedfile
+		rm encrkey
+		./mdc
+	else 
+		echo "Good bye"
+	fi
+else 
+	echo "Thank you"
+fi 
+rm *.o
+rm mdc

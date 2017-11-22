@@ -1,0 +1,226 @@
+head	1.13;
+access;
+symbols;
+locks
+	root:1.13; strict;
+comment	@ * @;
+
+
+1.13
+date	2017.07.19.15.38.41;	author root;	state Exp;
+branches;
+next	1.12;
+
+1.12
+date	2017.07.19.15.30.28;	author root;	state Exp;
+branches;
+next	1.11;
+
+1.11
+date	2017.05.15.06.02.54;	author root;	state Exp;
+branches;
+next	1.10;
+
+1.10
+date	2017.05.15.06.02.25;	author root;	state Exp;
+branches;
+next	1.9;
+
+1.9
+date	2017.05.13.13.25.54;	author root;	state Exp;
+branches;
+next	1.8;
+
+1.8
+date	2017.05.13.10.14.57;	author root;	state Exp;
+branches;
+next	1.7;
+
+1.7
+date	2017.05.13.09.25.53;	author root;	state Exp;
+branches;
+next	1.6;
+
+1.6
+date	2017.05.12.08.18.33;	author root;	state Exp;
+branches;
+next	1.5;
+
+1.5
+date	2017.05.12.06.18.52;	author root;	state Exp;
+branches;
+next	1.4;
+
+1.4
+date	2017.05.12.04.26.22;	author root;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2017.05.11.08.26.22;	author root;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2017.05.11.07.23.32;	author root;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2017.05.11.06.37.56;	author root;	state Exp;
+branches;
+next	;
+
+
+desc
+@This is an decleration file 
+we have all decleared function here
+@
+
+
+1.13
+log
+@*** empty log message ***
+@
+text
+@int mainmenu();
+int compression();
+int decompression();
+char *creatMasterarray(int);
+char *getma(int);
+int unique(char, char *);
+unsigned char charindex(unsigned char ch, char *ma);
+int codelen(int);
+int compression2(int,char *);
+int compression3(int,char *);
+int compression4(int,char *);
+int compression5(int,char *);
+int compression6(int,char *);
+int compression7(int,char *);
+int decompression2(int,char *);
+int decompression3(int,char *);
+int decompression4(int,char *);
+int decompression5(int,char *);
+int decompression6(int,char *);
+int decompression7(int,char *);
+int findIndex(unsigned char , char *);
+char findChar(int , char *);
+@
+
+
+1.12
+log
+@*** empty log message ***
+@
+text
+@d7 1
+a7 1
+char charindex(unsigned char ch, char *ma);
+@
+
+
+1.11
+log
+@*** empty log message ***
+@
+text
+@d7 1
+@
+
+
+1.10
+log
+@*** empty log message ***
+@
+text
+@d20 1
+a20 1
+int findIndex(unsigned har , char *);
+@
+
+
+1.9
+log
+@*** empty log message ***
+@
+text
+@d20 1
+a20 1
+int findIndex(char , char *);
+@
+
+
+1.8
+log
+@*** empty log message ***
+@
+text
+@d21 1
+@
+
+
+1.7
+log
+@*** empty log message ***
+@
+text
+@d14 6
+@
+
+
+1.6
+log
+@*** empty log message ***
+@
+text
+@d5 1
+@
+
+
+1.5
+log
+@*** empty log message ***
+@
+text
+@d13 1
+@
+
+
+1.4
+log
+@*** empty log message ***
+@
+text
+@d6 7
+@
+
+
+1.3
+log
+@*** empty log message ***
+@
+text
+@d5 1
+a5 1
+int unique(char, int, char *);
+@
+
+
+1.2
+log
+@this is an declaration
+@
+text
+@d5 1
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d4 1
+a4 1
+
+@

@@ -1,0 +1,49 @@
+head	1.2;
+access;
+symbols;
+locks
+	root:1.2; strict;
+comment	@ * @;
+
+
+1.2
+date	2017.05.13.13.28.39;	author root;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2017.05.13.13.25.57;	author root;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.2
+log
+@*** empty log message ***
+@
+text
+@#include "header.h"
+#include "declaration.h"
+char findChar(int i, char *ma)
+{
+	char byt;
+	byt=*(ma+i);
+	return byt;
+}
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@a5 1
+	printf("start: %s\n",__func__);
+a6 1
+	printf("end: %s\n",__func__);
+@

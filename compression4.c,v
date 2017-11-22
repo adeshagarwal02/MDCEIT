@@ -1,0 +1,538 @@
+head	1.25;
+access;
+symbols;
+locks
+	root:1.25; strict;
+comment	@ * @;
+
+
+1.25
+date	2017.05.15.06.02.26;	author root;	state Exp;
+branches;
+next	1.24;
+
+1.24
+date	2017.05.15.05.53.09;	author root;	state Exp;
+branches;
+next	1.23;
+
+1.23
+date	2017.05.13.06.08.11;	author root;	state Exp;
+branches;
+next	1.22;
+
+1.22
+date	2017.05.13.06.05.03;	author root;	state Exp;
+branches;
+next	1.21;
+
+1.21
+date	2017.05.12.13.36.41;	author root;	state Exp;
+branches;
+next	1.20;
+
+1.20
+date	2017.05.12.13.22.13;	author root;	state Exp;
+branches;
+next	1.19;
+
+1.19
+date	2017.05.12.12.13.42;	author root;	state Exp;
+branches;
+next	1.18;
+
+1.18
+date	2017.05.12.12.10.30;	author root;	state Exp;
+branches;
+next	1.17;
+
+1.17
+date	2017.05.12.11.57.28;	author root;	state Exp;
+branches;
+next	1.16;
+
+1.16
+date	2017.05.12.11.51.01;	author root;	state Exp;
+branches;
+next	1.15;
+
+1.15
+date	2017.05.12.11.34.22;	author root;	state Exp;
+branches;
+next	1.14;
+
+1.14
+date	2017.05.12.11.33.34;	author root;	state Exp;
+branches;
+next	1.13;
+
+1.13
+date	2017.05.12.11.27.47;	author root;	state Exp;
+branches;
+next	1.12;
+
+1.12
+date	2017.05.12.11.26.52;	author root;	state Exp;
+branches;
+next	1.11;
+
+1.11
+date	2017.05.12.08.54.17;	author root;	state Exp;
+branches;
+next	1.10;
+
+1.10
+date	2017.05.12.08.53.13;	author root;	state Exp;
+branches;
+next	1.9;
+
+1.9
+date	2017.05.12.08.35.41;	author root;	state Exp;
+branches;
+next	1.8;
+
+1.8
+date	2017.05.12.08.31.46;	author root;	state Exp;
+branches;
+next	1.7;
+
+1.7
+date	2017.05.12.08.25.30;	author root;	state Exp;
+branches;
+next	1.6;
+
+1.6
+date	2017.05.12.08.21.16;	author root;	state Exp;
+branches;
+next	1.5;
+
+1.5
+date	2017.05.12.08.20.38;	author root;	state Exp;
+branches;
+next	1.4;
+
+1.4
+date	2017.05.12.08.18.34;	author root;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2017.05.12.06.26.56;	author root;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2017.05.12.06.23.20;	author root;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2017.05.12.06.19.07;	author root;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.25
+log
+@*** empty log message ***
+@
+text
+@#include"header.h"
+#include"declaration.h"
+int compression4(int fd, char *ma)
+{
+	int cfd,i;
+	unsigned char byt,c,ch;
+	cfd=open("Compressedfile",O_WRONLY|O_CREAT);
+	if(cfd==-1)
+	{
+		perror("Error:");
+		exit(EXIT_FAILURE);	
+	}
+	printf("Start:compression4\n");
+	while(read(fd,&ch,1))
+	{
+		byt^=byt;
+/*		read(fd,&ch,1);
+		if(ch==10)
+		break;
+*/		i= findIndex(ch,ma);
+		c=(char)i;
+		c=c<<4;
+		byt|=c;
+		read(fd,&ch,1);
+/*		if(ch==10)
+		break;
+*/		i= findIndex(ch,ma);
+		c=(char)i;
+		c=c<<4;
+		c=c>>4;
+		byt|=c;
+		write(cfd,&byt,1);
+	}	
+	printf("END:compression4\n");
+	close(cfd);
+	return 0;
+}
+@
+
+
+1.24
+log
+@*** empty log message ***
+@
+text
+@d6 1
+a6 1
+	char byt,c,ch;
+@
+
+
+1.23
+log
+@this an compression for 4 bit
+@
+text
+@d21 1
+a21 1
+		sprintf(&c,"%d",i);
+d28 1
+a28 1
+		sprintf(&c,"%d",i);
+@
+
+
+1.22
+log
+@*** empty log message ***
+@
+text
+@d5 1
+a5 1
+	int cfd,i,newf;
+a7 1
+	newf=open("skey",O_WRONLY|O_CREAT);
+a34 2
+	write(newf,ma,strlen(ma));
+	close(newf);
+@
+
+
+1.21
+log
+@*** empty log message ***
+@
+text
+@d5 1
+a5 1
+	int cfd,i;
+d8 1
+d36 2
+@
+
+
+1.20
+log
+@*** empty log message ***
+@
+text
+@d17 2
+a18 2
+		read(fd,&ch,1);
+/*		if(ch==10)
+@
+
+
+1.19
+log
+@*** empty log message ***
+@
+text
+@d14 1
+a14 1
+	while(1)
+d18 1
+a18 1
+		if(ch==10)
+d20 1
+a20 1
+		i= findIndex(ch,ma);
+d25 1
+a25 1
+		if(ch==10)
+d27 1
+a27 1
+		i= findIndex(ch,ma);
+@
+
+
+1.18
+log
+@*** empty log message ***
+@
+text
+@d5 1
+a5 1
+	int cfd,i,ekey;
+d34 1
+a34 9
+/*	printf("END:compression4\n");
+	ekey=open("encrkey",O_WRONLY|O_CREAT);
+	if(ekey==-1)
+	{
+		perror("Error:");
+		exit(EXIT_FAILURE);	
+	}
+	write(ekey,ma,strlen(ma));
+	close(ekey);*/
+@
+
+
+1.17
+log
+@*** empty log message ***
+@
+text
+@d34 1
+a34 1
+	printf("END:compression4\n");
+d42 1
+a42 1
+	close(ekey);
+@
+
+
+1.16
+log
+@*** empty log message ***
+@
+text
+@a12 6
+	ekey=open("encrkey",O_WRONLY|O_CREAT);
+	if(ekey==-1)
+	{
+		perror("Error:");
+		exit(EXIT_FAILURE);	
+	}
+d35 2
+a36 1
+	for(i=0;i<strlen(ma);i++)
+d38 2
+a39 1
+		write(ekey,ma+i,1);
+d41 1
+@
+
+
+1.15
+log
+@*** empty log message ***
+@
+text
+@d8 5
+d14 5
+@
+
+
+1.14
+log
+@*** empty log message ***
+@
+text
+@a30 1
+	close(cfd);
+d33 1
+a33 1
+	//	write(ekey,ma+i,1);
+d36 1
+@
+
+
+1.13
+log
+@*** empty log message ***
+@
+text
+@d32 1
+a32 1
+	for(i=0;i<=strlen(ma);i++)
+d34 1
+a34 1
+		write(ekey,ma+i,1);
+@
+
+
+1.12
+log
+@*** empty log message ***
+@
+text
+@d34 1
+a34 1
+		write(ekey,*(ma+i),i+1);
+@
+
+
+1.11
+log
+@*** empty log message ***
+@
+text
+@d32 1
+a32 1
+/*	for(i=0;i<=strlen(ma);i++)
+d34 2
+a35 2
+		write(ekey,*(ma+i),1);
+	}*/
+@
+
+
+1.10
+log
+@*** empty log message ***
+@
+text
+@d32 1
+a32 1
+	for(i=0;i<=strlen(ma);i++)
+d35 1
+a35 1
+	}
+@
+
+
+1.9
+log
+@*** empty log message ***
+@
+text
+@d5 1
+a5 1
+	int cfd,i;
+d8 1
+d32 5
+@
+
+
+1.8
+log
+@*** empty log message ***
+@
+text
+@d5 2
+a6 2
+	int byt,cfd,i;
+	char c,ch;
+d13 1
+a13 1
+		if(ch=='\0')
+d18 1
+a18 1
+		byt |=c;
+d20 1
+a20 1
+		if(ch=='\0')
+d26 1
+a26 1
+		byt |=c;
+@
+
+
+1.7
+log
+@*** empty log message ***
+@
+text
+@d13 1
+a13 1
+		if(ch==10)
+d20 1
+a20 1
+		if(ch==10)
+@
+
+
+1.6
+log
+@*** empty log message ***
+@
+text
+@d13 1
+a13 1
+		if(ch==strlen(ma))
+d20 1
+a20 1
+		if(ch==strlen(ma))
+@
+
+
+1.5
+log
+@*** empty log message ***
+@
+text
+@d7 1
+a7 1
+	cfd=open("Compressedfile",O_WONLY|O_CREAT);
+@
+
+
+1.4
+log
+@*** empty log message ***
+@
+text
+@d5 1
+a5 1
+	int byt;
+d7 2
+d13 2
+d17 1
+a17 1
+		c=<<4;
+d20 2
+d24 2
+a25 2
+		c=<<4;
+		c=>>4;
+d27 1
+a28 1
+	printf("Start:compression4\n");
+d30 1
+@
+
+
+1.3
+log
+@*** empty log message ***
+@
+text
+@d5 17
+@
+
+
+1.2
+log
+@*** empty log message ***
+@
+text
+@d3 1
+a3 1
+int compression4(int, char*)
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d3 1
+a3 1
+int compression4()
+@

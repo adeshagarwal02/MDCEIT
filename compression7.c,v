@@ -1,0 +1,64 @@
+head	1.3;
+access;
+symbols;
+locks
+	root:1.3; strict;
+comment	@ * @;
+
+
+1.3
+date	2017.05.12.06.26.57;	author root;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2017.05.12.06.23.21;	author root;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2017.05.12.06.19.08;	author root;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.3
+log
+@*** empty log message ***
+@
+text
+@#include"header.h"
+#include"declaration.h"
+int compression7(int fd, char *ma)
+{
+	printf("Start:compression7\n");
+	printf("END:compression7\n");
+	return 0;
+}
+@
+
+
+1.2
+log
+@*** empty log message ***
+@
+text
+@d3 1
+a3 1
+int compression7(int, char *)
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d3 1
+a3 1
+int compression7()
+@

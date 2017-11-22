@@ -1,0 +1,50 @@
+head	1.2;
+access;
+symbols;
+locks
+	root:1.2; strict;
+comment	@ * @;
+
+
+1.2
+date	2017.07.19.15.38.43;	author root;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2017.07.19.15.30.30;	author root;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.2
+log
+@*** empty log message ***
+@
+text
+@#include"header.h"
+#include"declaration.h"
+unsigned char charindex(unsigned char ch, char *ma)
+{
+	char c;
+	int i; 
+	i= findIndex(ch,ma);
+	c=(char)i;
+	return c;
+}
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d3 1
+a3 1
+char charindex(char ch, char *ma)
+@

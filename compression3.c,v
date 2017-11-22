@@ -1,0 +1,365 @@
+head	1.13;
+access;
+symbols;
+locks
+	root:1.13; strict;
+comment	@ * @;
+
+
+1.13
+date	2017.08.30.12.26.35;	author root;	state Exp;
+branches;
+next	1.12;
+
+1.12
+date	2017.08.30.10.02.52;	author root;	state Exp;
+branches;
+next	1.11;
+
+1.11
+date	2017.08.30.09.49.33;	author root;	state Exp;
+branches;
+next	1.10;
+
+1.10
+date	2017.07.19.18.59.08;	author root;	state Exp;
+branches;
+next	1.9;
+
+1.9
+date	2017.07.19.18.58.17;	author root;	state Exp;
+branches;
+next	1.8;
+
+1.8
+date	2017.07.19.18.39.51;	author root;	state Exp;
+branches;
+next	1.7;
+
+1.7
+date	2017.07.19.18.39.05;	author root;	state Exp;
+branches;
+next	1.6;
+
+1.6
+date	2017.07.19.17.57.55;	author root;	state Exp;
+branches;
+next	1.5;
+
+1.5
+date	2017.07.19.17.47.13;	author root;	state Exp;
+branches;
+next	1.4;
+
+1.4
+date	2017.07.19.16.05.46;	author root;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2017.07.19.15.35.17;	author root;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2017.07.19.15.30.31;	author root;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2017.05.12.19.00.24;	author root;	state Exp;
+branches;
+next	;
+
+
+desc
+@this is an compression file for 3 bites
+@
+
+
+1.13
+log
+@*** empty log message ***
+@
+text
+@#include"header.h"
+#include"declaration.h"
+int compression3(int fd, char *ma)
+{
+	int cfd,i;
+        unsigned char byt,c,ch;
+        cfd=open("Compressedfile",O_WRONLY|O_CREAT);
+        if(cfd==-1)
+        {
+                perror("Error:");
+                exit(EXIT_FAILURE);
+        }
+        printf("Start:compression3\n");
+        while(read(fd,&ch,1))
+        {
+                byt^=byt;
+	       	c=charindex(ch,ma);
+                c=c<<5;
+                byt|=c;
+                if(ch=='\0')
+                break;
+                read(fd,&ch,1);
+	        c=charindex(ch,ma);
+	        c=c<<5;
+                c=c>>3;
+                byt|=c;
+                if(ch == '\0')
+                break;
+                read(fd,&ch,1);
+  		c=charindex(ch,ma);
+                c=c<<5;
+                c=c>>6;
+                byt|=c;
+                write(cfd,&byt,1);
+		byt^=byt;
+		c=charindex(ch,ma);
+		c=c<<7;
+		byt|=c;
+                if(ch == '\0')
+                break;
+		read(fd,&ch,1);
+		c=charindex(ch,ma);
+		c=c<<5;
+		c=c>>1;
+		byt|=c;
+                if(ch == '\0')
+                break;
+		read(fd,&ch,1);
+		c=charindex(ch,ma);
+		c=c<<5;
+		c=c>>4;
+		byt|=c;
+                if(ch == '\0')
+                break;
+		read(fd,&ch,1);
+		c=charindex(ch,ma);
+		c=c<<5;
+		c=c>>7;
+		byt|=c;
+		write(cfd,&byt,1);
+		byt^=byt;
+		c=charindex(ch,ma);
+		c=c<<6;
+		byt|=c;
+                if(ch == '\0')
+                break;
+		read(fd,&ch,1);
+		c=charindex(ch,ma);
+		c=c<<5;
+		c=c>>2;
+		byt|=c;
+                if(ch == '\0')
+                break;
+		read(fd,&ch,1);
+		c=charindex(ch,ma);
+		c=c<<5;
+		c=c>>5;
+		byt|=c;
+		write(cfd,&byt,1);	
+                if(ch == '\0')
+                break;
+        }
+        printf("END:compression3\n");
+        close(cfd);
+	return 0;
+}
+@
+
+
+1.12
+log
+@*** empty log message ***
+@
+text
+@d76 1
+a76 1
+		c=c>>5;
+@
+
+
+1.11
+log
+@*** empty log message ***
+@
+text
+@a16 2
+                if(ch=='\0')
+                break;
+d20 2
+a22 2
+                if(ch == '\0')
+                break;
+a26 1
+                read(fd,&ch,1);
+d29 1
+a38 1
+		read(fd,&ch,1);
+d41 1
+a45 1
+		read(fd,&ch,1);
+d48 1
+a52 1
+		read(fd,&ch,1);
+d55 1
+a64 1
+		read(fd,&ch,1);
+d67 1
+a71 1
+		read(fd,&ch,1);
+d74 1
+d80 2
+@
+
+
+1.10
+log
+@*** empty log message ***
+@
+text
+@d17 1
+a17 2
+/*              read(fd,&ch,1);
+                if(ch==10)
+d19 1
+a19 1
+*/              c=charindex(ch,ma);
+d23 1
+a23 1
+/*              if(ch==10)
+d25 2
+a26 2
+*/              c=charindex(ch,ma);
+                c=c<<5;
+d30 2
+d42 2
+d49 2
+d56 2
+d68 2
+d75 2
+@
+
+
+1.9
+log
+@*** empty log message ***
+@
+text
+@d6 1
+a6 1
+        unsigned char byt,c;
+@
+
+
+1.8
+log
+@*** empty log message ***
+@
+text
+@d6 1
+a6 1
+        unsigned char byt,c,ch;
+a71 7
+	byt^=byt;
+	c='\0';
+	c=charindex(ch,ma);
+	c=c<<5;
+	c=c>>5;
+	byt|=c;
+	write(cfd,&byt,1);
+@
+
+
+1.7
+log
+@*** empty log message ***
+@
+text
+@d73 1
+a73 1
+	c='\0'
+@
+
+
+1.6
+log
+@*** empty log message ***
+@
+text
+@d72 7
+@
+
+
+1.5
+log
+@*** empty log message ***
+@
+text
+@d70 1
+a70 2
+		write(cfd,&byt,1);
+		
+a71 1
+	write(cfd,'\0',1);
+@
+
+
+1.4
+log
+@*** empty log message ***
+@
+text
+@d73 1
+@
+
+
+1.3
+log
+@*** empty log message ***
+@
+text
+@d37 1
+a37 1
+		c=(char)i;
+d45 26
+@
+
+
+1.2
+log
+@*** empty log message ***
+@
+text
+@d20 1
+a20 2
+*/              i= findIndex(ch,ma);
+                c=(char)i;
+d26 1
+a26 2
+*/              i= findIndex(ch,ma);
+                c=(char)i;
+d31 1
+a31 2
+  		i= findIndex(ch,ma);
+                c=(char)i;
+d41 1
+a41 2
+                i= findIndex(ch,ma);
+                c=(char)i;
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d5 48
+a52 2
+	printf("Start:compression3\n");
+	printf("END:compression3\n");
+@

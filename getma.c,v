@@ -1,0 +1,40 @@
+head	1.1;
+access;
+symbols;
+locks
+	root:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2017.05.13.08.39.21;	author root;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@#include "header.h"
+#include "declaration.h"
+char *getma(int eke)
+{
+	char *ma,ch;
+	int i=0;
+	ma=NULL;
+	while(read(eke,&ch,1))
+	{
+		ma = realloc(ma,i+1);
+		*(ma+i)=ch;
+		i++;
+	}
+	return ma;
+}
+
+@

@@ -1,0 +1,54 @@
+head	1.2;
+access;
+symbols;
+locks
+	root:1.2; strict;
+comment	@ * @;
+
+
+1.2
+date	2017.05.15.06.03.32;	author root;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2017.05.12.08.18.36;	author root;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.2
+log
+@*** empty log message ***
+@
+text
+@#include"header.h"
+#include"declaration.h"
+int findIndex(unsigned char ch, char *ma)
+{
+	int i;
+	for(i=0;i<strlen(ma);i++)
+	{
+		if(ch==*(ma+i))
+		{
+			return i;
+		}
+	}		
+	return -1;
+}
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d3 1
+a3 1
+int findIndex(char ch, char *ma)
+@
